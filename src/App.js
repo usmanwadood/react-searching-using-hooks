@@ -6,6 +6,8 @@ import './App.css';
 import React from 'react';
 import useSemiPersistantState from './components/useSemiPersistantState'
 import friends from './components/friends'
+import Filter from './components/FilterG'
+import Search from './components/SearchG'
 
 const App = () => {
 
@@ -23,36 +25,6 @@ const App = () => {
     <Search list = {friends} onChange = {onChange}/>
     <Filter list = {friends} filterName = {state} />
     </>
-  )
-}
-
-const Filter = ({list, filterName})=> {
-
-  const newList = list.filter((item)=> item.fname.toLowerCase().includes(filterName.toLowerCase()))
-  
-  return(
-    newList.map((item)=>{
-      return(
-        <div className={item.id}>
-          <h4>First Name: {item.fname}</h4>
-          <h4>Last Name: {item.lname}</h4>
-          <p>Age: {item.age}</p>
-          <p>Gender: {item.gender}</p>
-          <p>Role: {item.role}</p>
-        </div>
-      )
-    })
-  )
-}
-
-
-const Search = ({list, onChange})=> {
-
-  return(
-    <div>
-      <label htmlFor='search'></label>
-      <input type='text' onChange={onChange}></input>
-    </div>
   )
 }
 
